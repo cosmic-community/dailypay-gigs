@@ -1,3 +1,4 @@
+// app/jobs/[slug]/page.tsx
 import { getJobBySlug, getAllJobs } from '@/lib/cosmic'
 import { Job } from '@/types'
 import Link from 'next/link'
@@ -8,7 +9,7 @@ export const revalidate = 60
 export async function generateStaticParams() {
   const jobs = await getAllJobs()
   
-  return jobs.map((job) => ({
+  return jobs.map((job: Job) => ({
     slug: job.slug,
   }))
 }

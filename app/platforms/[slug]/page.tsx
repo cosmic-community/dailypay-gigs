@@ -1,3 +1,4 @@
+// app/platforms/[slug]/page.tsx
 import { getPlatformBySlug, getJobsByPlatform, getAllPlatforms } from '@/lib/cosmic'
 import { Platform, Job } from '@/types'
 import Link from 'next/link'
@@ -8,7 +9,7 @@ export const revalidate = 60
 export async function generateStaticParams() {
   const platforms = await getAllPlatforms()
   
-  return platforms.map((platform) => ({
+  return platforms.map((platform: Platform) => ({
     slug: platform.slug,
   }))
 }

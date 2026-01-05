@@ -1,3 +1,4 @@
+// app/categories/[slug]/page.tsx
 import { getCategoryBySlug, getJobsByCategory, getAllCategories } from '@/lib/cosmic'
 import { Category, Job } from '@/types'
 import Link from 'next/link'
@@ -8,7 +9,7 @@ export const revalidate = 60
 export async function generateStaticParams() {
   const categories = await getAllCategories()
   
-  return categories.map((category) => ({
+  return categories.map((category: Category) => ({
     slug: category.slug,
   }))
 }
